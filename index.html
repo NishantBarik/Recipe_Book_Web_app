@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Book</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Maindish.html"/>
+    <link rel="stylesheet" href="Indianbread.html"/>
+    <link rel="stylesheet" href="Desserts.html"/>
+    <link rel="stylesheet" href="Biryani.html"/>
+	 <script>
+        $(document).ready(function () {
+                 
+            $("#dishcategories").on("change", function () {
+                var value = $(this).val().toLowerCase();
+                $(".dishes .card").filter(function () {
+                    var category = $(this).data("category").toLowerCase();
+                    $(this).toggle(category === value || value === "default");
+                });
+            });
+            $("#search").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".dishes .card").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
+    </script>
+    <style>
+        .p1{
+            font-style: italic;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2rem;
+            color: red;
+        }
+        img {
+            height: 50%;
+            width: 50%;
+        }
+
+        body {
+            background-color: beige;
+        }
+
+        .heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            text-align: center;
+            color:#660708;
+            height: 80px;
+        }
+        .p1{
+            padding-top: 15px;
+            color:#660708;
+            font-size: 2.5rem;
+            text-shadow: 2px;
+            font-weight: 900;
+        }
+        .p2{
+            font-size: 1.3rem;
+        }
+
+        h2 {
+            margin-top: 5%;
+        }
+
+
+        .image {
+            display: flex;
+            justify-content: center;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #660708;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-evenly;
+            color: aliceblue;
+            height: 50px;
+        }
+
+        .nav-search {
+            display: flex;
+            flex-direction: row-reverse;
+           text-align: center;
+            color: aliceblue;
+        }
+
+        .nav-search input {
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            height: 25px;
+            width: 200px;
+        }
+        #clr{
+            background-color: gray;
+        }
+
+        .search-icon {
+            display: flex;
+            padding-top: 8px;
+            padding-left: 5px;
+            color: aliceblue;
+            height: 50px;
+            width: 50px;
+        }
+
+        ul li {
+            display: inline-block;
+            padding: 10px;
+            text-decoration: none;
+            color: aliceblue;
+        }
+
+        ul li:hover {
+            background-color: #e9d8a6;
+        }
+
+        .Dishes {
+            display: flex;
+            justify-content: space-between;
+        }
+        #indian{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            
+            text-align: center;
+        }
+        
+        .MainDishes,
+        .IndianBreads,
+        .Desserts,
+        .Biryani,
+        .Cake {
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 200px;
+            width: 200px;
+            margin-top: 20px;
+        }
+
+        .MainDishes {
+            background-image: url(https://res.cloudinary.com/rainforest-cruises/images/c_fill,g_auto/f_auto,q_auto/w_1120,h_732,c_fill,g_auto/v1661347425/india-food-dal-tadka/india-food-dal-tadka-1120x732.jpg);
+        }
+
+        .IndianBreads {
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4OXfx5x6q94zO4-7Z7_VclMdW2QccqLONpQ&usqp=CAU);
+        }
+
+        .Desserts {
+            background-image: url(https://img.freepik.com/premium-photo/bowl-rice-pudding-with-fruits-black-background_787273-4227.jpg?size=626&ext=jpg&ga=GA1.1.2116175301.1701302400&semt=sph);
+        }
+
+        .Biryani {
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuFM-wfhAzJ_IYH_aEXau_8idnUO8sYiRk7w&usqp=CAU);
+        }
+
+        .Cake {
+            background-image: url(https://t4.ftcdn.net/jpg/02/23/08/13/360_F_223081386_qvCOCdsCYyWHsvh2LdWwvXP6iGdI89wo.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div class="pos-f-t" id="nav">
+        <div  id="navbarToggleExternalContent">
+            <div >
+                <div class="list" style="background-color:#7c4547; height: fit-content;">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Contact_us.html">Contact</a></li>
+                        <li><a href="My_Recipe_Upload.html">Add recipes here</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li>
+                            <div class="nav-search">
+                                <input placeholder="Search Recipes" id="search"  class="search-input">
+                                <div class="search-icon">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>     
+     <div> 
+	<select name="dishcategories" id="dishcategories">
+		<option value="default">SELECT YOUR CUISINES....</option>
+		<option value="northindiandish">NorthIndianDish</option>
+		<option value="southindiandish">SouthIndianDish</option>
+		<option value="rajasthanidish">RajasthaniDish</option>
+        <option value="punjabidish">PunjabiDish</option>
+		<option value="odishadish">OdishaDish</option>
+		</select>
+        <!--<nav class="navbar navbar-dark" id="clr">
+            <button class="navbar-toggler" type="button"  data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>-->
+    </div>
+    <br>
+	
+    <div class="heading">
+        <p class="p1">Recipe Book</p>
+    </div>
+<marquee><p class="p2" style="display:inline-block">Here we will provide you with all the directions explaining how to prepare and cook various kinds of food.You may share your special recipe too!!</p></marquee>
+    <br><br><br>
+    <div class="container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://assets.vogue.com/photos/6352ccb841ea2bd565be085f/master/w_2560%2Cc_limit/GettyImages-1223580360.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block bg-danger">
+                        <h5>Main Dishes</h5>
+                        <p>Recipes!!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.archanaskitchen.com/media/k2/items/cache/121e78c934fd47747b7535fef07b8461_XL.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block bg-danger">
+                        <h5>Indian Breads</h5>
+                        <p>Recipes!!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.tastingtable.com/img/gallery/17-must-try-north-indian-mithai/intro-1672669787.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block bg-danger">
+                        <h5>Desserts</h5>
+                        <p>Recipes!!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://static.wixstatic.com/media/91e241_76e634b7ab52498e82533ba79b747b55~mv2.jpg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/91e241_76e634b7ab52498e82533ba79b747b55~mv2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block bg-danger">
+                        <h5>Biryani</h5>
+                        <p>Recipes!!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://hips.hearstapps.com/del.h-cdn.co/assets/16/38/1600x800/landscape-1474650684-cakes-group-193.jpg?resize=1200:*" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block bg-danger">
+                        <h5>Cake</h5>
+                        <p>Recipes!!</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" data-target="#carouselExampleIndicators" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" data-target="#carouselExampleIndicators" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <br><br><br>
+        <div class="Dishes">
+            <div class="MainDishes">
+                <a href="Maindish.html" style="color: aliceblue;" target="_blank">
+                    Main Dishes
+                </a>
+            </div>
+            <div class="IndianBreads">
+                <a href="Indianbread.html" style="color: aliceblue;" target="_blank">
+                    Indian Breads
+                </a>
+            </div>
+            <div class="Desserts">
+                <a href="Desserts.html" style="color:aliceblue" target="_blank">
+                    Desserts
+                </a>
+            </div>
+            <div class="Biryani">
+                <a href="Biryani.html" style="color: aliceblue;" target="_blank">
+                    Biryani
+                </a>
+            </div>
+            <div class="Cake">
+                <a href="Cakes.html" style="color: aliceblue;" target="_blank">
+                    Cakes
+                </a>
+            </div>
+        </div><br><br>
+        <div class="container">
+            <h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center; background-color: #a4161a; color: burlywood;">TRENDING RECIPES!!!</h2>
+            <div class="card-deck trending">
+                <div class="R1 card">
+                    <img class="card-img-top" src="https://myfoodstory.com/wp-content/uploads/2017/01/Easy-Palak-Paneer-2.jpg" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="palakpaneer.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Palak Paneer</a>
+                    </div>
+                </div>
+                <div class="R2 card">
+                    <img class="card-img-top" src="https://www.archanaskitchen.com/images/archanaskitchen/Indian_Vegetables_Gravy/Paneer_Makhani_Recipe-4.jpg" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="paneermakhani.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Paneer Makhani</a>
+                    </div>
+                </div>
+                <div class="R3 card">
+                    <img class="card-img-top" src="https://www.mydelicious-recipes.com/home/images/86_1200_1200/mydelicious-recipes-butter-naan" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="GarlicButterNaan.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Garlic Butter Naan</a>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+
+            <!-- Popular dishes from different states -->
+		<h1 class="container-fluid" id="indian"  style="background-color: #9d0208; color: beige;">INDIAN CUISINES RECIPES</h1><br><br>
+		<div class="container dishes">
+            
+            <br>
+            <h1 style="background-color: #588157;">North Indian Cuisine Recipes</h1>
+            <div class="card-deck">
+                <div class="northindiandish card" data-category="northindiandish">
+                    <img class="card-img-top" src="https://static.toiimg.com/thumb/62178678.cms?width=1200&height=900" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="malaikofta.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Malai Kofta</a>
+                    </div>
+                </div>
+                <div class="northindiandish card" data-category="northindiandish">
+                    <img class="card-img-top" src="https://housing.com/news/wp-content/uploads/2024/02/Best-Chole-Bhature-in-Gurgaon-f.jpg" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="cholebhature.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Chole Bhature</a>
+                    </div>
+                </div>
+                <div class="northindiandish card"data-category="northindiandish">
+                    <img class="card-img-top" src="https://www.potsandpans.in/cdn/shop/articles/Tangy-Mushroom-Masala-with-Matar-4-1067x617.webp?v=1667382961" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="kadhaimushroom.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Kadhai Mushroom</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+	<!-- Popular dishes from different states -->
+            <h1 style="background-color: #a3b18a;">Rajasthani Cuisine Recipes</h1>
+
+            <div class="card-deck">
+                <div class="rajasthanidish card" data-category="rajasthanidish">
+                    <img class="card-img-top" src="https://finallyfoodie.com/wp-content/uploads/2020/07/Lal-Maas.jpg" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="LaalMaas.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Laal Maas</a>
+                    </div>
+                </div>
+                <div class="rajasthanidish card" data-category="rajasthanidish">
+                    <img class="card-img-top" src="https://www.ndtv.com/cooks/images/safed%20maas-620.jpg" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="SafedMaas.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Safed Maas</a>
+                    </div>
+                </div>
+                <div class="rajasthanidish card" data-category="rajasthanidish">
+                    <img class="card-img-top" src="https://i.ytimg.com/vi/A_UQvkNzpf4/maxresdefault.jpg" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="gattekikhichdi.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Gatte Ki Khichdi</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <h1 style="background-color:  #588157;">Punjabi Cuisine Recipes</h1>
+
+            <div class="card-deck">
+                <div class="punjabidish card" data-category="punjabidish">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR01FI7Rm-MuDQqw7TEw5s0ezCb9030lkh6HA&usqp=CAU" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="dalmakhani.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Dal Makhani</a>
+                    </div>
+                </div>
+                <div class="punjabidish card" data-category="punjabidish">
+                    <img class="card-img-top" src="https://www.chefkunalkapur.com/wp-content/uploads/2021/03/Sarson-Ka-saag-new-recipe.jpg?v=1619450720" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="saag.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Sarson da saag</a>
+                    </div>
+                </div>
+                <div class="punjabidish card" data-category="punjabidish">
+                    <img class="card-img-top" src="https://static.toiimg.com/thumb/56097918.cms?width=1200&height=900" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="makkediroti.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Makki di Roti</a>
+                    </div>
+                </div>
+            </div>
+<br>
+<h1 style="background-color:  #a3b18a;">Odisha Cuisine Recipes</h1>
+
+<div class="card-deck odishadish">
+    <div class="odishadish card" data-category="odishadish">
+        <img class="card-img-top" src="https://images.aws.nestle.recipes/original/d40be7ac794899f21dc625d07753feb3_Dalma_-_Plating.jpg" alt="Card image">
+        <div class="card-body text-center">
+            <a href="Dalma.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Dalma</a>
+        </div>
+    </div>
+    <div class="odishadish card" data-category="odishadish">
+        <img class="card-img-top" src="https://img-global.cpcdn.com/recipes/6a666843936e5268/1200x630cq70/photo.jpg" alt="Card image">
+        <div class="card-body text-center">
+            <a href="Pakhalabhata.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Pakhala</a>
+        </div>
+    </div>
+    <div class="odishadish card" data-category="odishadish">
+        <img class="card-img-top" src="https://img-global.cpcdn.com/recipes/443ca45cbe3805ff/1200x630cq70/photo.jpg" alt="Card image">
+        <div class="card-body text-center">
+            <a href="MachaBesara.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Macchar Besara</a>
+        </div>
+    </div>
+
+</div>
+<br>
+<h1 style="background-color:#588157;">South Indian Cuisine Recipes</h1>
+		
+            <div class="card-deck">
+                <div class="southindiandish card" data-category="southindiandish">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4SweqCd6jb5UXy27mWdARMfFWYPmSD35TeA&usqp=CAU" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="hydbiriyani.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Hyderabad Biriyani</a>
+                    </div>
+                </div>
+                <div class="southindiandish card" data-category="southindiandish">
+                    <img class="card-img-top" src="https://mummyrecipes.in/wp-content/uploads/2019/04/rajugaricover.jpg" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="Kodipulao.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Kodi Pulao</a>
+                    </div>
+                </div>
+                <div class="southindiandish card" data-category="southindiandish">
+                    <img class="card-img-top" src="https://i.ytimg.com/vi/9ycIV3AyGe8/maxresdefault.jpg" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="royyalayeppadu.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Royyala Yeppadu</a>
+                    </div>
+                </div>
+            </div>
+	<br>
+   
+	
+		<!-- Popular dishes from different states -->
+          
+            <div class="card-deck">
+                <div class="southindiandish card" data-category="southindiandish">
+                    <img class="card-img-top" src="https://www.finedininglovers.com/sites/g/files/xknfdk626/files/2023-02/Dosa%20recipe%20via%20Deepla%20Tamang%20Unsplash.jpeg" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="Dosa.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Dosa</a>
+                    </div>
+                </div>
+                <div class="southindiandish card" data-category="southindiandish">
+                    <img class="card-img-top" src="https://sapanarestaurant.com/wp-content/uploads/2019/11/idli-sambar-900x600.jpg" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="idlisambar.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Idli Sambar</a>
+                    </div>
+                </div>
+                <div class="southindiandish card" data-category="southindiandish">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbaqeRbG_S1cgllKzjLsTTYIklzBXMJbBeSA&usqp=CAU" alt="Card image">
+                    <div class="card-body text-center">
+                        <a href="MeduVada.html" style="color: rgb(2, 18, 18);text-transform: capitalize;font-weight: bold;" class="card-link">Medu Vada</a>
+                    </div>
+                </div>
+            </div>
+		
+        </div>
+	</div>
+    </div>
+</body>
+
+</html>

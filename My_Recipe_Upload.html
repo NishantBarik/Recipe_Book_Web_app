@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Upload Page</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background: url("free-animated-food-background-qk78y.jpg");
+      background-size: cover;
+      color: #3E2723;
+    }
+    img{
+        width: 10%;
+    }
+    .one{
+        float: left;
+    }
+    .two{
+        float: right;
+    }
+    .head{
+        overflow: hidden;
+    }
+    .recipe-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #FFF3E0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .uploaded-recipes {
+      margin-top: 30px;
+    }
+    .recipe-list-item {
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .recipe-list-item:hover {
+      background-color: #ffecec;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container recipe-container">
+    <div class="head">
+    <img src="d64916806684a3e47c90c8f5e8f6c7d9-removebg-preview.png" class="one">
+    <img src="d64916806684a3e47c90c8f5e8f6c7d9-removebg-preview.png" class="two">
+    <h2 class="text-center mb-4">Recipe Upload Page</h2>
+</div>
+  <form id="recipeForm">
+    <div class="form-group">
+      <label for="recipeName">Recipe Name:</label>
+      <input type="text" class="form-control" id="recipeName" required>
+    </div>
+    <div class="form-group">
+      <label for="ingredients">Ingredients:</label>
+      <input type="text" class="form-control" id="ingredients" required>
+    </div>
+    <div class="form-group">
+      <label for="recipeContent">Making Process:</label>
+      <textarea class="form-control" id="recipeContent" rows="5" required></textarea>
+    </div>
+    <button type="button" class="btn btn-primary" id="uploadButton">Upload Recipe</button>
+  </form>
+
+  <div class="uploaded-recipes mt-4">
+    <h3>Uploaded Recipes</h3>
+    <ul class="list-group" id="recipeList"></ul>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $("#uploadButton").click(function() {
+      const recipeName = $("#recipeName").val();
+      const ingredients = $("#ingredients").val();
+      const recipeContent = $("#recipeContent").val();
+
+      if (recipeName && ingredients && recipeContent) {
+        const currentDate = new Date().toLocaleDateString();
+        const listItem = $("<li></li>").addClass("list-group-item recipe-list-item")
+          .html(`<br><strong>Recipe:</strong>${recipeName}<br>- ${currentDate}<br><strong>Ingredients:</strong> ${ingredients}<br><strong>Making Process:</strong> ${recipeContent}`)
+          .click(function() {
+            showRecipeDetails(recipeName, ingredients, recipeContent);
+          });
+
+        $("#recipeList").append(listItem);
+
+        // Clear the form
+        $("#recipeForm")[0].reset();
+      } else {
+        alert('Please fill in all fields.');
+      }
+    });
+
+    function showRecipeDetails(recipeName, ingredients, recipeContent) {
+      const detailsMessage = `Recipe: ${recipeName}\n\nIngredients: ${ingredients}\n\nMaking Process: ${recipeContent}`;
+      alert(detailsMessage);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script>
+        $(function () {
+            $("#btn").click(function(){
+                var usr = $("#user").val();
+                var pwd = $("#password").val();
+                if (usr === "" || pwd === "") {
+                    alert("The username or password field is empty.");
+                }
+            });
+        });
+    </script>
+<style>
+body{
+		background-image: url(https://img.freepik.com/free-photo/vintage-old-rustic-cutlery-dark_1220-4886.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704844800&semt=ais);
+        background-size: cover;
+        background-repeat: no-repeat;
+	}
+    #div{
+        height: 900px;
+        width: 400px;
+        padding-top: 200px;
+       
+    }
+	.contact{
+		padding: 4%;
+		height: 400px;
+	}
+	
+	.contact-info{
+		margin-top:10%;
+	}
+	.contact-info img{
+		margin-bottom: 15%;
+	}
+	.contact-info h2{
+		margin-bottom: 10%;
+		color:#d9b99b;
+	}
+	.contact-info h4{
+		font-family: Garamond, serif;
+		color:#d9b99b;
+	}
+	.five{
+		background: #fff;
+		padding: 5%;
+		border-radius: 0.5rem;
+		
+	}
+    .seven{
+       padding-left: 70px;
+        height: 10%;
+        width: 80%;
+    }
+   
+	.contact-form label{
+		font-weight:600;
+	}
+	#btn{
+        display: flex;
+        
+        justify-content: center;
+		background: tomato;
+		color: #fff;
+		font-weight: 600;
+		
+	}
+    .button{
+        display: flex;
+        justify-content: center;
+    }
+	.contact-form #btn:focus{
+		box-shadow:none;
+	}
+</style>
+</head>
+<body>
+<div class="container-fluid" id="div">
+	<div class="six">
+		<div class="five">
+			<div class="contact-form">
+				<div class="form-group">
+				  <label for="user" style="padding-left: 70px;">UserName</label>
+				  <div class="seven">          
+					<input type="text"  id="user" placeholder="Enter UserName" name="fname">
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label for="password" style="padding-left: 70px;">Password</label>
+				  <div class="seven">          
+					<input type="password"  id="password" placeholder="Enter Password" name="lname" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+				  </div>
+				</div>
+                <div class="button">
+				<input type="submit" value="Submit" id="btn">
+            </div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
